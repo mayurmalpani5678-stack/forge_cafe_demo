@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forge Cafe | Artisan Coffee Roasters & Space</title>
+    <!-- Google Fonts: Poppins & Lexend -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        heading: ['Poppins', 'sans-serif'],
+                        body: ['Lexend', 'sans-serif'],
+                    },
+                    colors: {
+                        forge: {
+                            50: '#FDFBF7',  // Warm Cream
+                            100: '#F4EFE6', // Soft Taupe
+                            800: '#231F20', // Espresso Charcoal
+                            900: '#141213', // Deep Dark Obsidian
+                            amber: '#D4A373', // Rich Roasted Amber
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Lexend', sans-serif; background-color: #FDFBF7; }
+        h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; }
+        
+        /* Smooth Scroll-Reveal Utility Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 0.8s cubic-bezier(0.215, 0.610, 0.355, 1), transform 0.8s cubic-bezier(0.215, 0.610, 0.355, 1);
+            will-change: transform, opacity;
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-100 { transition-delay: 100ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-300 { transition-delay: 300ms; }
+    </style>
+</head>
+<body class="text-forge-800 antialiased selection:bg-forge-amber selection:text-white">
+
+    <!-- Top Accent Bar -->
+    <div class="bg-forge-900 text-forge-100 text-[11px] text-center py-2.5 px-4 tracking-widest uppercase font-medium border-b border-white/5">
+        ⚡ Today's Roast: Ethiopian Yirgacheffe Single-Origin — Handcrafted Fresh Every Morning
+    </div>
+
+    <!-- Header Navigation -->
+    <header id="main-header" class="sticky top-0 z-50 w-full transition-all duration-300 bg-forge-50/80 backdrop-blur-md border-b border-forge-100">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-2 group">
+                <span class="text-2xl font-extrabold tracking-tight text-forge-900 group-hover:text-forge-amber transition-colors">
+                    FORGE<span class="text-forge-amber font-light">.</span>CAFE
+                </span>
+            </a>
+
+            <!-- Desktop Nav System -->
+            <nav class="hidden md:flex items-center space-x-8 font-medium text-xs uppercase tracking-widest text-forge-800/80">
+                <a href="#home" class="hover:text-forge-amber transition-colors text-forge-900 font-bold">Home</a>
+                <a href="#about" class="hover:text-forge-amber transition-colors">Our Philosophy</a>
+                <a href="#menu" class="hover:text-forge-amber transition-colors">The Menu</a>
+                <a href="#space" class="hover:text-forge-amber transition-colors">The Workspace</a>
+                <a href="#contact" class="hover:text-forge-amber transition-colors">Find Us</a>
+            </nav>
+
+            <!-- CTA Action -->
+            <div class="hidden md:flex items-center">
+                <a href="#contact" class="bg-forge-900 text-white hover:bg-forge-amber hover:text-forge-900 transition-all duration-300 text-xs uppercase font-bold tracking-widest px-6 py-3.5 rounded-none">
+                    Order Pick-Up
+                </a>
+            </div>
+
+            <!-- Mobile Drawer Button -->
+            <button id="menu-btn" class="md:hidden text-forge-900 focus:outline-none" aria-label="Toggle Navigation Menu">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer Links -->
+        <div id="mobile-menu" class="hidden md:hidden bg-forge-50 border-b border-forge-100 px-6 py-6 space-y-4 shadow-xl">
+            <a href="#home" class="block text-forge-900 font-medium hover:text-forge-amber py-1">Home</a>
+            <a href="#about" class="block text-forge-900 font-medium hover:text-forge-amber py-1">Our Philosophy</a>
+            <a href="#menu" class="block text-forge-900 font-medium hover:text-forge-amber py-1">The Menu</a>
+            <a href="#space" class="block text-forge-900 font-medium hover:text-forge-amber py-1">The Workspace</a>
+            <a href="#contact" class="block text-forge-900 font-medium hover:text-forge-amber py-1">Find Us</a>
+            <a href="#contact" class="block w-full text-center bg-forge-900 text-white font-bold py-3 text-xs uppercase tracking-widest">
+                Order Pick-Up
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-[85vh] flex items-center bg-forge-900 overflow-hidden">
+        <!-- Background Premium Atmospheric Overlay -->
+        <div class="absolute inset-0 z-0 opacity-40 mix-blend-multiply bg-center bg-cover" style="background-image: url('https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1920&q=80');"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-forge-900 via-forge-900/70 to-transparent z-0"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-6 py-20 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div class="lg:col-span-8 space-y-6">
+                <span class="inline-block text-forge-amber tracking-widest uppercase font-semibold text-xs border-b-2 border-forge-amber pb-1">
+                    Precision Roasted • Thoughtfully Served
+                </span>
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-white leading-tight font-heading uppercase tracking-tight">
+                    Where Raw Caffeine <br>Meets <span class="text-forge-amber">Artisanal Craft.</span>
+                </h1>
+                <p class="text-forge-100/80 text-base sm:text-lg max-w-xl font-light leading-relaxed">
+                    Forge Cafe engineers pristine specialty beverages for builders, creators, and high-performance teams. Crafted by certified baristas in an environment designed for absolute deep focus.
+                </p>
+                <div class="pt-4 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                    <a href="#menu" class="bg-forge-amber text-forge-900 hover:bg-white transition-all duration-300 text-center px-8 py-4 uppercase font-bold text-xs tracking-widest shadow-md">
+                        Explore Live Menu
+                    </a>
+                    <a href="#space" class="border border-white/30 text-white hover:bg-white/10 transition-all duration-300 text-center px-8 py-4 uppercase font-bold text-xs tracking-widest">
+                        Reserve Workspace
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Metric Standards Strip -->
+    <section class="bg-forge-100 border-y border-forge-100/50">
+        <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="reveal">
+                <h3 class="text-2xl font-bold text-forge-900 font-heading">100%</h3>
+                <p class="text-[11px] uppercase tracking-wider text-forge-800/60 mt-1">Single-Origin Arabica</p>
+            </div>
+            <div class="reveal delay-100">
+                <h3 class="text-2xl font-bold text-forge-900 font-heading">85+ Points</h3>
+                <p class="text-[11px] uppercase tracking-wider text-forge-800/60 mt-1">Specialty Coffee Grade</p>
+            </div>
+            <div class="reveal delay-200">
+                <h3 class="text-2xl font-bold text-forge-900 font-heading">Gigabit</h3>
+                <p class="text-[11px] uppercase tracking-wider text-forge-800/60 mt-1">Symmetric Mesh Wi-Fi</p>
+            </div>
+            <div class="reveal delay-300">
+                <h3 class="text-2xl font-bold text-forge-900 font-heading">06:00 AM</h3>
+                <p class="text-[11px] uppercase tracking-wider text-forge-800/60 mt-1">Early Builder Roasting</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy / About Section -->
+    <section id="about" class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="relative reveal">
+            <div class="w-11/12 aspect-[4/5] bg-forge-100 overflow-hidden border border-forge-100">
+                <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=800&q=80" alt="Artisan Pour Over Coffee" class="w-full h-full object-cover filter brightness-95 contrast-105">
+            </div>
+            <div class="absolute bottom-[-8%] right-0 w-1/2 aspect-square p-2 bg-forge-amber shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80" alt="Cafe modern interiors" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <div class="space-y-6 reveal delay-100">
+            <span class="text-forge-amber text-xs uppercase tracking-widest font-bold block">The Roasting Standard</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-forge-900 font-heading uppercase tracking-tight">Engineered for Focus & Clarity.</h2>
+            <p class="text-forge-800/80 leading-relaxed font-light text-sm sm:text-base">
+                At Forge Cafe, we believe coffee is vital infrastructure for breakthrough ideas. We source micro-lots directly from farmers across globally certified high-altitude zones, ensuring every cup contains complex flavor notes with zero bitter compromise.
+            </p>
+            <blockquote class="border-l-4 border-forge-amber pl-4 text-forge-900 italic font-medium bg-forge-100/50 py-3 pr-4">
+                "We strip away the commercial additives. What remains is pristine extraction, optimized acoustics, and pristine focus."
+            </blockquote>
+            <p class="text-forge-800/80 leading-relaxed font-light text-sm">
+                Our space features acoustic treatment panels, biometric seating layout designs, and a distraction-free workflow environment so you can build your core architectures while refueling seamlessly.
+            </p>
+        </div>
+    </section>
+
+    <!-- Interactive Menu Section -->
+    <section id="menu" class="bg-forge-100 py-24 border-y border-forge-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-12 reveal">
+                <span class="text-forge-amber text-xs uppercase tracking-widest font-bold block mb-2">The Fuel Blueprint</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-forge-900 font-heading uppercase">The Extraction Menu</h2>
+                <div class="w-16 h-0.5 bg-forge-amber mx-auto mt-4"></div>
+            </div>
+
+            <!-- Menu Navigation Tabs -->
+            <div class="flex justify-center space-x-4 mb-12 reveal delay-100">
+                <button onclick="switchTab('espresso')" id="btn-espresso" class="menu-tab-btn active px-6 py-2.5 text-xs font-bold uppercase tracking-widest border-b-2 border-forge-900 text-forge-900 transition-all duration-300">
+                    Espresso Bar
+                </button>
+                <button onclick="switchTab('slow-bar')" id="btn-slow-bar" class="menu-tab-btn px-6 py-2.5 text-xs font-bold uppercase tracking-widest border-b-2 border-transparent text-forge-800/60 hover:text-forge-900 transition-all duration-300">
+                    Manual Slow Bar
+                </button>
+            </div>
+
+            <!-- Tab Content 1: Espresso Bar -->
+            <div id="tab-espresso" class="menu-tab-content grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-forge-50 p-6 border border-forge-100 flex justify-between items-start reveal">
+                    <div>
+                        <h4 class="font-bold text-forge-900 font-heading text-base">Cortado <span class="text-xs text-forge-amber font-normal ml-2">1:1 Ratio</span></h4>
+                        <p class="text-xs text-forge-800/60 mt-1 font-light">Double shot ristretto balanced perfectly with equal part silky micro-foam.</p>
+                    </div>
+                    <span class="font-bold text-forge-900 font-heading text-sm">$4.50</span>
+                </div>
+                <div class="bg-forge-50 p-6 border border-forge-100 flex justify-between items-start reveal delay-100">
+                    <div>
+                        <h4 class="font-bold text-forge-900 font-heading text-base">Forge Cold Brew <span class="text-xs text-forge-amber font-normal ml-2">18hr Steep</span></h4>
+                        <p class="text-xs text-forge-800/60 mt-1 font-light">Slow double-filtered brew with deep naturally sweet chocolate notes.</p>
+                    </div>
+                    <span class="font-bold text-forge-900 font-heading text-sm">$5.00</span>
+                </div>
+                <div class="bg-forge-50 p-6 border border-forge-100 flex justify-between items-start reveal">
+                    <div>
+                        <h4 class="font-bold text-forge-900 font-heading text-base">Artisan Flat White</h4>
+                        <p class="text-xs text-forge-800/60 mt-1 font-light">Velvety micro-foam folded meticulously over complex espresso structure.</p>
+                    </div>
+                    <span class="font-bold text-forge-900 font-heading text-sm">$4.75</span>
+                </div>
+                <div class="bg-forge-50 p-6 border border-forge-100 flex justify-between items-start reveal delay-100">
+                    <div>
+                        <h4 class="font-bold text-forge-900 font-heading text-base">Smoked Amber Latte</h4>
+                        <p class="text-xs text-forge-800/60 mt-1 font-light">Espresso infused with house-made organic smoked caramel molasses.</p>
+                    </div>
+                    <span class="font-bold text-forge-900 font-heading text-sm">$5.50</span>
+                </div>
+            </div>
+
+            <!-- Tab Content 2: Manual Slow Bar -->
+            <div id="tab-slow-bar" class="menu-tab-content hidden grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-forge-50 p-6 border border-forge-100 flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-forge-900 font-heading text-base">V60 Pour Over</h4>
+                        <p class="text-xs text-forge-800/60 mt-1 font-light">Precise geometric pour accentuating bright citric notes and clean floral profile.</p>
+                    </div>
+                    <span class="font-bold text-forge-900 font-heading text-sm">$6.00</span>
+                </div>
+                <div class="bg-forge-50 p-6 border border-forge-100 flex justify-between items-start">
+                    <div>
+                        <h4 class="font-bold text-forge-900 font-heading text-base">AeroPress Extraction</h4>
+                        <p class="text-xs text-forge-800/60 mt-1 font-light">Immersion-driven profile creating higher density mouthfeel and rich flavor layers.</p>
+                    </div>
+                    <span class="font-bold text-forge-900 font-heading text-sm">$5.50</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Workspace Section -->
+    <section id="space" class="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-7 space-y-6 order-2 lg:order-1 reveal">
+            <span class="text-forge-amber text-xs uppercase tracking-widest font-bold block">The Ecosystem</span>
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-forge-900 font-heading uppercase tracking-tight">High-Speed Workspace Integration</h2>
+            <p class="text-forge-800/80 leading-relaxed font-light text-sm sm:text-base">
+                Tired of chaotic coffee shops with flaky networks and zero charging options? Forge Cafe integrates dedicated enterprise-grade ergonomic desks, multi-port power points at every bench, and true high-speed mesh architecture to maintain stable cloud terminal pipelines.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-medium text-forge-900">
+                <div class="flex items-center space-x-3 bg-forge-100 p-4 border border-forge-100">
+                    <svg class="w-5 h-5 text-forge-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                    <span>Symmetric Enterprise Fibernet</span>
+                </div>
+                <div class="flex items-center space-x-3 bg-forge-100 p-4 border border-forge-100">
+                    <svg class="w-5 h-5 text-forge-amber" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <span>Acoustic Deep-Work Zones</span>
+                </div>
+            </div>
+        </div>
+        <div class="lg:col-span-5 order-1 lg:order-2 reveal delay-100">
+            <div class="aspect-[4/3] bg-forge-100 border border-forge-100 overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=800&q=80" alt="Modern clean workspace architecture" class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- Secure Desk Booking & Contact -->
+    <section id="contact" class="bg-forge-900 text-white py-24 border-t border-forge-100/10">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16">
+            <div class="lg:col-span-5 space-y-6 reveal">
+                <span class="text-forge-amber text-xs uppercase tracking-widest font-bold block">Onsite Operations</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold font-heading uppercase tracking-tight">Visit The Forge</h2>
+                <p class="text-forge-100/70 font-light text-sm leading-relaxed">
+                    Drop by our central flagship hub or reserve a high-leverage conference table workspace securely using the configuration layout module.
+                </p>
+                <div class="space-y-4 pt-4 text-xs font-light text-forge-100/80">
+                    <p class="flex items-center">
+                        <svg class="w-5 h-5 text-forge-amber mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                        102 Industrial Foundry Circuit, Suite B, Austin, TX
+                    </p>
+                    <p class="flex items-center">
+                        <svg class="w-5 h-5 text-forge-amber mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+                        ops@forgecafe.com
+                    </p>
+                </div>
+            </div>
+
+            <!-- Onboarding / Contact Form -->
+            <div class="lg:col-span-7 bg-forge-800 p-8 sm:p-10 border border-white/5 shadow-2xl reveal delay-100">
+                <form id="cafeForm" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-forge-100 font-bold mb-2">Full Name</label>
+                            <input type="text" required class="w-full bg-forge-900 border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-forge-amber rounded-none transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-forge-100 font-bold mb-2">Email Address</label>
+                            <input type="email" required class="w-full bg-forge-900 border border-white/10 px-4 py-3 text-sm text-white focus:outline-none focus:border-forge-amber rounded-none transition-colors">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-forge-100 font-bold mb-2">Reservation Framework</label>
+                            <select class="w-full bg-forge-900 border border-white/10 px-4 py-3 text-sm text-forge-100/60 focus:outline-none focus:border-forge-amber rounded-none transition-colors">
+                                <option>Just Ordering Coffee / Pick-Up</option>
+                                <option>Single Dedicated Desk Slot (Daily)</option>
+                                <option>8-Seat Architecture Conference Room</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-forge-100 font-bold mb-2">Target Timeline</label>
+                            <input type="date" class="w-full bg-forge-900 border border-white/10 px-4 py-3 text-sm text-forge-100/60 focus:outline-none focus:border-forge-amber rounded-none transition-colors">
+                        </div>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-forge-amber text-forge-900 font-black uppercase tracking-widest text-xs py-4 transition-all duration-300 rounded-none hover:bg-white">
+                            Submit Secure Request
+                        </button>
+                    </div>
+                    <p id="success-notification" class="text-xs text-forge-amber font-medium text-center hidden">✓ Request routed successfully. Your pickup or desk slot allocation is locked in.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="bg-forge-900 text-white pt-16 pb-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+            <div class="space-y-4">
+                <h3 class="text-xl font-bold font-heading tracking-tight text-white">FORGE<span class="text-forge-amber font-light">.</span>CAFE</h3>
+                <p class="text-forge-100/50 text-xs font-light leading-relaxed">
+                    Artisan clean energy extraction designed to augment peak operational and intellectual clarity.
+                </p>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-forge-amber mb-4">Navigation</h4>
+                <ul class="space-y-2 text-xs text-forge-100/60 font-light">
+                    <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                    <li><a href="#about" class="hover:text-white transition-colors">Philosophy</a></li>
+                    <li><a href="#menu" class="hover:text-white transition-colors">The Menu</a></li>
+                    <li><a href="#space" class="hover:text-white transition-colors">The Workspace</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-forge-amber mb-4">Roaster Hours</h4>
+                <ul class="space-y-2 text-xs text-forge-100/60 font-light">
+                    <li>Weekdays: 06:00 AM - 10:00 PM</li>
+                    <li>Saturdays: 06:00 AM - 11:00 PM</li>
+                    <li>Sundays: 07:00 AM - 08:00 PM</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-xs font-bold uppercase tracking-widest text-forge-amber mb-4">Intel Dispatch</h4>
+                <p class="text-forge-100/50 text-xs mb-4 font-light">Subscribe to get single-origin supply drop notifications.</p>
+                <div class="flex">
+                    <input type="email" placeholder="Your Active Email" class="bg-white/5 text-white px-3 py-2 text-xs w-full focus:outline-none focus:bg-white/10 rounded-none border border-white/10">
+                    <button class="bg-forge-amber text-forge-900 px-4 text-xs font-bold hover:bg-white transition-colors rounded-none">→</button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-6 pt-8 border-t border-white/5 flex flex-col sm:flex-row items-center justify-between text-[11px] text-forge-100/40">
+            <p>&copy; 2026 Forge Cafe Ecosystem. All Rights Reserved. Clean Extraction.</p>
+            <div class="flex space-x-6 mt-4 sm:mt-0">
+                <a href="#" class="hover:text-gray-300 transition-colors">Sourcing Manifest</a>
+                <a href="#" class="hover:text-gray-300 transition-colors">Privacy Charter</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript For Interactivity & Smooth Animations -->
+    <script>
+        // High-Performance Smooth Intersection Observer for Scroll Reveals
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const scrollRevealObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target); // Single execution keeps memory footprint ultra-low
+                }
+            });
+        }, { threshold: 0.12 });
+
+        revealElements.forEach(element => scrollRevealObserver.observe(element));
+
+        // Interactive Live Menu Tab Switch System
+        function switchTab(tabId) {
+            // Hide all tab views
+            const contents = document.querySelectorAll('.menu-tab-content');
+            contents.forEach(content => content.classList.add('hidden'));
+
+            // Reset tab button underlines and colors
+            const buttons = document.querySelectorAll('.menu-tab-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('active', 'border-forge-900', 'text-forge-900');
+                btn.classList.add('border-transparent', 'text-forge-800/60');
+            });
+
+            // Activate chosen tab elements
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            const activeBtn = document.getElementById(`btn-${tabId}`);
+            activeBtn.classList.add('active', 'border-forge-900', 'text-forge-900');
+            activeBtn.classList.remove('border-transparent', 'text-forge-800/60');
+        }
+
+        // Responsive Mobile Menu Toggle Interface
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            } else {
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>`;
+            }
+        });
+
+        // Autoclose mobile drawer on layout click
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.innerHTML = `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>`;
+            });
+        });
+
+        // Dynamic Navigation Sticky Polish State
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 40) {
+                header.classList.add('shadow-sm', 'bg-forge-50/95', 'py-1');
+                header.classList.remove('bg-forge-50/80');
+            } else {
+                header.classList.remove('shadow-sm', 'bg-forge-50/95', 'py-1');
+                header.classList.add('bg-forge-50/80');
+            }
+        });
+
+        // Onboarding Form Notification Logic
+        const form = document.getElementById('cafeForm');
+        const successNotify = document.getElementById('success-notification');
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            successNotify.classList.remove('hidden');
+            form.reset();
+            setTimeout(() => {
+                successNotify.classList.add('hidden');
+            }, 5000);
+        });
+    </script>
+</body>
+</html>
